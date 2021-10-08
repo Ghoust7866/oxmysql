@@ -1,4 +1,4 @@
-import { createPool } from 'mysql2/promise';
+import { createPool } from 'mysql2';
 import { parseTypes } from './parser';
 import { ConnectionStringParser } from 'connection-string-parser';
 
@@ -63,4 +63,7 @@ const createConnection = () => {
   }
 };
 
-export const pool = createConnection();
+const pool = createConnection();
+const promisePool = pool.promise();
+
+export { pool, promisePool };
